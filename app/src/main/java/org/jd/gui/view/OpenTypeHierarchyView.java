@@ -49,7 +49,7 @@ public class OpenTypeHierarchyView {
         this.selectedTypeCallback = selectedTypeCallback;
         // Build GUI
         SwingUtil.invokeLater(() -> {
-            openTypeHierarchyDialog = new JDialog(mainFrame, "Hierarchy Type", false);
+            openTypeHierarchyDialog = new JDialog(mainFrame, "层次结构类型", false);
 
             JPanel panel = new JPanel();
             panel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
@@ -102,19 +102,19 @@ public class OpenTypeHierarchyView {
             openTypeHierarchyScrollPane.setPreferredSize(new Dimension(400, 150));
             panel.add(openTypeHierarchyScrollPane, BorderLayout.CENTER);
 
-            // Buttons "Open" and "Cancel"
+            // Buttons "打开" and "取消"
             Box vbox = Box.createVerticalBox();
             panel.add(vbox, BorderLayout.SOUTH);
             vbox.add(Box.createVerticalStrut(25));
             Box hbox = Box.createHorizontalBox();
             vbox.add(hbox);
             hbox.add(Box.createHorizontalGlue());
-            JButton openTypeHierarchyOpenButton = new JButton("Open");
+            JButton openTypeHierarchyOpenButton = new JButton("打开");
             hbox.add(openTypeHierarchyOpenButton);
             openTypeHierarchyOpenButton.setEnabled(false);
             openTypeHierarchyOpenButton.addActionListener(e -> onTypeSelected());
             hbox.add(Box.createHorizontalStrut(5));
-            JButton openTypeHierarchyCancelButton = new JButton("Cancel");
+            JButton openTypeHierarchyCancelButton = new JButton("取消");
             hbox.add(openTypeHierarchyCancelButton);
             Action openTypeHierarchyCancelActionListener = new AbstractAction() {
                 @Override public void actionPerformed(ActionEvent actionEvent) { openTypeHierarchyDialog.setVisible(false); }

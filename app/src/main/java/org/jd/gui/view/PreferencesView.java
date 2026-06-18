@@ -32,7 +32,7 @@ public class PreferencesView implements PreferencesPanel.PreferencesPanelChangeL
         this.panels = panels;
         // Build GUI
         SwingUtil.invokeLater(() -> {
-            preferencesDialog = new JDialog(mainFrame, "Preferences", false);
+            preferencesDialog = new JDialog(mainFrame, "首选项", false);
 
             JPanel panel = new JPanel();
             panel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
@@ -102,7 +102,7 @@ public class PreferencesView implements PreferencesPanel.PreferencesPanelChangeL
 
             vbox.add(Box.createVerticalStrut(15));
 
-            // Buttons "Ok" and "Cancel"
+            // Buttons "确定" and "取消"
             Box hbox = Box.createHorizontalBox();
             hbox.add(Box.createHorizontalGlue());
             preferencesOkButton.setText("   Ok   ");
@@ -115,7 +115,7 @@ public class PreferencesView implements PreferencesPanel.PreferencesPanelChangeL
             });
             hbox.add(preferencesOkButton);
             hbox.add(Box.createHorizontalStrut(5));
-            JButton preferencesCancelButton = new JButton("Cancel");
+            JButton preferencesCancelButton = new JButton("取消");
             Action preferencesCancelActionListener = new AbstractAction() {
                 public void actionPerformed(ActionEvent actionEvent) { preferencesDialog.setVisible(false); }
             };

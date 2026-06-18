@@ -44,7 +44,7 @@ public class OpenTypeView {
         this.api = api;
         // Build GUI
         SwingUtil.invokeLater(() -> {
-            openTypeDialog = new JDialog(mainFrame, "Open Type", false);
+            openTypeDialog = new JDialog(mainFrame, "打开类型", false);
 
             JPanel panel = new JPanel();
             panel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
@@ -56,7 +56,7 @@ public class OpenTypeView {
             panel.add(vbox, BorderLayout.NORTH);
 
             Box hbox = Box.createHorizontalBox();
-            hbox.add(new JLabel("Select a type to open (* = any string, ? = any character, TZ = TimeZone):"));
+            hbox.add(new JLabel("选择要打开的类型（* = 任意字符串，? = 任意字符，TZ = TimeZone）："));
             hbox.add(Box.createHorizontalGlue());
             vbox.add(hbox);
 
@@ -106,7 +106,7 @@ public class OpenTypeView {
             vbox.add(Box.createVerticalStrut(10));
 
             hbox = Box.createHorizontalBox();
-            hbox.add(openTypeMatchLabel = new JLabel("Matching types:"));
+            hbox.add(openTypeMatchLabel = new JLabel("匹配的类型："));
             hbox.add(Box.createHorizontalGlue());
             vbox.add(hbox);
 
@@ -135,18 +135,18 @@ public class OpenTypeView {
             scrollPane.setPreferredSize(new Dimension(400, 150));
             panel.add(scrollPane, BorderLayout.CENTER);
 
-            // Buttons "Open" and "Cancel"
+            // Buttons "打开" and "取消"
             vbox = Box.createVerticalBox();
             panel.add(vbox, BorderLayout.SOUTH);
             vbox.add(Box.createVerticalStrut(25));
             vbox.add(hbox = Box.createHorizontalBox());
             hbox.add(Box.createHorizontalGlue());
-            JButton openTypeOpenButton = new JButton("Open");
+            JButton openTypeOpenButton = new JButton("打开");
             hbox.add(openTypeOpenButton);
             openTypeOpenButton.setEnabled(false);
             openTypeOpenButton.addActionListener(e -> onTypeSelected(selectedTypeCallback));
             hbox.add(Box.createHorizontalStrut(5));
-            JButton openTypeCancelButton = new JButton("Cancel");
+            JButton openTypeCancelButton = new JButton("取消");
             hbox.add(openTypeCancelButton);
             Action openTypeCancelActionListener = new AbstractAction() {
                 @Override public void actionPerformed(ActionEvent actionEvent) { openTypeDialog.setVisible(false); }
@@ -222,7 +222,7 @@ public class OpenTypeView {
 
             switch (count) {
                 case 0:
-                    openTypeMatchLabel.setText("Matching types:");
+                    openTypeMatchLabel.setText("匹配的类型：");
                     break;
                 case 1:
                     openTypeMatchLabel.setText("1 matching type:");

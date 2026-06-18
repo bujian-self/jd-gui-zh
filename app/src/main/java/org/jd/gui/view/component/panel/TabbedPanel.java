@@ -82,7 +82,7 @@ public class TabbedPanel<T extends JComponent & UriGettable> extends JPanel impl
     public void addPage(String title, Icon icon, String tip, T page) {
         // Add a new tab
         JLabel tabCloseButton = new JLabel(CLOSE_ICON);
-        tabCloseButton.setToolTipText("Close this panel");
+        tabCloseButton.setToolTipText("关闭此面板");
         tabCloseButton.addMouseListener(new MouseListener() {
             @Override public void mousePressed(MouseEvent e) {}
             @Override public void mouseReleased(MouseEvent e) {}
@@ -143,22 +143,22 @@ public class TabbedPanel<T extends JComponent & UriGettable> extends JPanel impl
     protected class PopupTabMenu extends JPopupMenu {
         public PopupTabMenu(Component component) {
             // Add default popup menu entries
-            JMenuItem menuItem = new JMenuItem("Close", null);
+            JMenuItem menuItem = new JMenuItem("关闭", null);
             menuItem.addActionListener(e -> removeComponent(component));
             add(menuItem);
 
-            menuItem = new JMenuItem("Close Others", null);
+            menuItem = new JMenuItem("关闭其他", null);
             menuItem.addActionListener(e -> removeOtherComponents(component));
             add(menuItem);
 
-            menuItem = new JMenuItem("Close All", null);
+            menuItem = new JMenuItem("全部关闭", null);
             menuItem.addActionListener(e -> removeAllComponents());
             add(menuItem);
 
-            // Add "Select Tab" popup menu entry
+            // Add "选择标签页" popup menu entry
             if ((tabbedPane.getTabCount() > 1) && (PlatformService.getInstance().isMac() || "true".equals(preferences.get(TAB_LAYOUT)))) {
                 addSeparator();
-                JMenu menu = new JMenu("Select Tab");
+                JMenu menu = new JMenu("选择标签页");
                 int count = tabbedPane.getTabCount();
 
                 for (int i = 0; i < count; i++) {

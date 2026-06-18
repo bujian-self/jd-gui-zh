@@ -24,7 +24,7 @@ public class SaveAllSourcesView {
     public SaveAllSourcesView(JFrame mainFrame, Runnable cancelCallback) {
         // Build GUI
         SwingUtil.invokeLater(() -> {
-            saveAllSourcesDialog = new JDialog(mainFrame, "Save All Sources", false);
+            saveAllSourcesDialog = new JDialog(mainFrame, "保存所有源代码", false);
             saveAllSourcesDialog.setResizable(false);
             saveAllSourcesDialog.addWindowListener(new WindowAdapter() {
                 @Override public void windowClosing(WindowEvent e) {
@@ -48,10 +48,10 @@ public class SaveAllSourcesView {
 
             vbox.add(Box.createVerticalStrut(15));
 
-            // Button "Cancel"
+            // Button "取消"
             hbox = Box.createHorizontalBox();
             hbox.add(Box.createHorizontalGlue());
-            JButton saveAllSourcesCancelButton = new JButton("Cancel");
+            JButton saveAllSourcesCancelButton = new JButton("取消");
             Action saveAllSourcesCancelActionListener = new AbstractAction() {
                 public void actionPerformed(ActionEvent actionEvent) {
                     cancelCallback.run();

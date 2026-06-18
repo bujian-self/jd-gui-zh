@@ -32,14 +32,14 @@ public class GoToView {
     public GoToView(Configuration configuration, JFrame mainFrame) {
         // Build GUI
         SwingUtil.invokeLater(() -> {
-            goToDialog = new JDialog(mainFrame, "Go to Line", false);
+            goToDialog = new JDialog(mainFrame, "转到行", false);
             goToDialog.setResizable(false);
 
             Box vbox = Box.createVerticalBox();
             vbox.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
             goToDialog.add(vbox);
 
-            // First label "Enter line number (1..xxx):"
+            // First label "输入行号 (1..xxx):"
             Box hbox = Box.createHorizontalBox();
             hbox.add(goToEnterLineNumberLabel = new JLabel());
             hbox.add(Box.createHorizontalGlue());
@@ -67,7 +67,7 @@ public class GoToView {
 
             vbox.add(Box.createVerticalStrut(15));
 
-            // Buttons "Ok" and "Cancel"
+            // Buttons "确定" and "取消"
             hbox = Box.createHorizontalBox();
             hbox.add(Box.createHorizontalGlue());
             JButton goToOkButton = new JButton("   Ok   ");
@@ -78,7 +78,7 @@ public class GoToView {
                 goToDialog.setVisible(false);
             });
             hbox.add(Box.createHorizontalStrut(5));
-            JButton goToCancelButton = new JButton("Cancel");
+            JButton goToCancelButton = new JButton("取消");
             hbox.add(goToCancelButton);
             Action goToCancelActionListener = new AbstractAction() {
                 public void actionPerformed(ActionEvent actionEvent) { goToDialog.setVisible(false); }
@@ -115,17 +115,17 @@ public class GoToView {
 
                             if (lineNumber > navigator.getMaximumLineNumber()) {
                                 goToOkButton.setEnabled(false);
-                                showErrorMessage("Line number out of range");
+                                showErrorMessage("行号超出范围");
                             } else if (navigator.checkLineNumber(lineNumber)) {
                                 goToOkButton.setEnabled(true);
                                 clearErrorMessage();
                             } else {
                                 goToOkButton.setEnabled(false);
-                                showErrorMessage("Line number not found");
+                                showErrorMessage("未找到行号");
                             }
                         } catch (NumberFormatException e) {
                             goToOkButton.setEnabled(false);
-                            showErrorMessage("Not a number");
+                            showErrorMessage("不是数字");
                         }
                     }
                 }
@@ -153,7 +153,7 @@ public class GoToView {
 
         SwingUtil.invokeLater(() -> {
             // Init
-            goToEnterLineNumberLabel.setText("Enter line number (1.." + navigator.getMaximumLineNumber() + "):");
+            goToEnterLineNumberLabel.setText("输入行号 (1.." + navigator.getMaximumLineNumber() + ")：");
             goToEnterLineNumberTextField.setText("");
             // Show
             goToDialog.setVisible(true);
