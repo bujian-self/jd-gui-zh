@@ -52,13 +52,13 @@ public class MainTabbedPanel<T extends JComponent & UriGettable> extends TabbedP
         box.setBackground(panel.getBackground());
         box.add(Box.createVerticalGlue());
 
-        JLabel title = newLabel("No files are open", fontColor);
+        JLabel title = newLabel("没有打开的文件", fontColor);
         title.setFont(title.getFont().deriveFont(Font.BOLD, title.getFont().getSize()+8));
 
         box.add(title);
-        box.add(newLabel("Open a file with menu \"File > Open File...\"", fontColor));
-        box.add(newLabel("Open recent files with menu \"File > Recent Files\"", fontColor));
-        box.add(newLabel("Drag and drop files from " + getFileManagerLabel(), fontColor));
+        box.add(newLabel("使用菜单\"文件 > 打开文件...\"打开文件", fontColor));
+        box.add(newLabel("使用菜单\"文件 > 最近的文件\"打开最近的文件", fontColor));
+        box.add(newLabel("从以下位置拖放文件： " + getFileManagerLabel(), fontColor));
         box.add(Box.createVerticalGlue());
 
         panel.add(box);
@@ -105,7 +105,7 @@ public class MainTabbedPanel<T extends JComponent & UriGettable> extends TabbedP
             case MacOSX:
                 return "the Finder";
             default:
-                return "Explorer";
+                return "资源管理器";
         }
     }
 
